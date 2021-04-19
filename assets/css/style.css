@@ -1,0 +1,84 @@
+/*Intégrer les fonts*/
+
+/*
+@font-face {
+	font-family: "myFirstFont";
+	src: url("../font/FontsFree-Net-Proxima-Nova-Black.otf");
+	font-family: "mySecondFont";
+	src: url("../font/ProximaNova-Light.otf");
+}*/
+
+@font-face {
+	font-family: "ProximaNova-Light";
+	src: url("../font/ProximaNova-Light.otf");
+}
+
+@font-face {
+	font-family: "FontsFree-Net-Proxima-Nova-Black";
+	src: url("../font/FontsFree-Net-Proxima-Nova-Black.otf");
+}
+
+body {
+	font-family: ProximaNova-Light;
+}
+
+.card-text {
+
+}
+
+/*Image de fond*/
+
+body {
+	background-image: url('../image/background.jpg');
+	background-size: 100%;
+	background-attachment: fixed;
+}
+
+/*Background color header*/
+.bg-header {
+	background: linear-gradient(#CCCCCC, #A4A4A4); 
+}
+
+/*Modifier la taille des polices (cards)*/
+/*Taille texte pour card-title*/
+
+.card-title {
+	font-size : 1.3em;
+}
+
+/*Taille texte pour card-text*/
+
+.card-text {
+	font-size: 1em;
+}
+
+/*Modifier la taille des polices (CRUD)*/
+
+.text-CRUD {
+	font-size: 1em;
+}
+
+/*Style header*/
+
+.btn-outline {
+
+}
+
+/*Style Footer*/
+
+#Copyright {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*Modifier image supprimer.php*/
+
+
+/*Modifier la taille des polices (tailles avec media queries)*/
+
+/*Utiliser les medias queries*/
+
+/*Modifier la taille des images (info)*/
+/*Modifier la taille des images (plats/index)*/
+/*Modifier la taille des images (tailles avec media queries)*/
+
+/*Modifier les boutons de chaques pages*/
