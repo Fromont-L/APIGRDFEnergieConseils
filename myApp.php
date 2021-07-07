@@ -5,55 +5,6 @@
 	require './db_inc.php';
 	require './account_class.php';
 
-	// Créer un compte
-
-	$account = new Account();
-
-	try
-	{
-		$newId = $account->addAccount('myNewName', 'myPassword');
-	}
-	catch (Exception $e)
-	{
-		/* Something went wrong: echo the exception message and die */
-		echo $e->getMessage();
-		die();
-	}
-
-	echo 'The new account ID is ' . $newId;
-
-	// Editer un compte
-
-	$accountId = 1;
-
-	try
-	{
-		$account->editAccount($accountId, 'myNewName', 'new password', TRUE);
-	}
-	catch (Exception $e)
-	{
-		echo $e->getMessage();
-		die();
-	}
-
-	echo 'Account edit successful.';
-
-	// Supprimer un compte
-
-	$accountId = 1;
-
-	try
-	{
-		$account->deleteAccount($accountId);
-	}
-	catch (Exception $e)
-	{
-		echo $e->getMessage();
-		die();
-	}
-
-	echo 'Account delete successful.';
-
 	// Se connecter avec un compte
 
 	$login = FALSE;
@@ -170,4 +121,3 @@
 	}
 
 	echo 'Sessions closed successfully.';
-

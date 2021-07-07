@@ -4,10 +4,10 @@
 	$host = 'localhost';
 
 	/* MySQL account username */
-	$user = 'fromont';
+	$user = 'root';
 
 	/* MySQL account password */
-	$passwd = 'password';
+	$passwd = '';
 
 	/* The schema you want to use */
 	$schema = 'Tricatel';
