@@ -41,24 +41,24 @@
 	}
 	*/
 
-	if(isset($_POST['bearerCDAF']))
+	if(isset($_POST['bearerCDAS']))
 	{
 
 		// Permet de faire une sélection parmi la liste de choix de role_tiers
-		if (isset($_POST['role_tiersCDAF'])) {
-			$role_tiers_list = convertir_liste($_POST['role_tiersCDAF']);
+		if (isset($_POST['role_tiersCDAS'])) {
+			$role_tiers_list = convertir_liste($_POST['role_tiersCDAS']);
 		}
 		// Permet de faire une sélection parmi la liste de choix de etat_droit_acces
-		if (isset($_POST['etat_droit_accesCDAF'])) {
-			$etat_droit_acces_list = convertir_liste($_POST['etat_droit_accesCDAF']);
+		if (isset($_POST['etat_droit_accesCDAS'])) {
+			$etat_droit_acces_list = convertir_liste($_POST['etat_droit_accesCDAS']);
 		}
 		// Permet de faire une sélection parmi la liste de choix de statut_controle_preuve
-		if (isset($_POST['statut_controle_preuveCDAF'])) {
-			$statut_controle_preuve_list = convertir_liste($_POST['statut_controle_preuveCDAF']);
+		if (isset($_POST['statut_controle_preuveCDAS'])) {
+			$statut_controle_preuve_list = convertir_liste($_POST['statut_controle_preuveCDAS']);
 		}
 		// Permet de faire une sélection parmi la liste de choix de statut_controle_preuve
-		if (isset($_POST['id_pceCDAF'])) {
-			$id_pce_list = convertir_liste($_POST['id_pceCDAF']);
+		if (isset($_POST['id_pceCDAS'])) {
+			$id_pce_list = convertir_liste($_POST['id_pceCDAS']);
 		}
 		// Exécute le code java consulterdroitacces.jar
 		$cmd = "\"jdk-8.0.292.10-hotspot\\jre\\bin\\java.exe\" -jar consulterdroitaccesspecifique.jar"
@@ -66,7 +66,7 @@
 		. " \"" . $etat_droit_acces_list . "\""
 		. " \"" . $statut_controle_preuve_list . "\""
 		. " \"" . $id_pce_list . "\""
-		. " \"" . $_POST['bearerCDAF'] . "\"" 
+		. " \"" . $_POST['bearerCDAS'] . "\"" 
 		. " 2>&1";
 
 		exec($cmd, $output);
@@ -117,46 +117,54 @@
 
 						<!--Renseigner l'access_token-->
 						<label>Insérer l'access_token : </label>
-						<input type="text" id="bearerCDAF" name="bearerCDAF"/>
+						<input type="text" id="bearerCDAS" name="bearerCDAS"/>
 						<br/>
 
 						<!--Renseigner le role_tiers-->
-						<input type="checkbox" value="AUTORISE_CONTRAT_FOUNITURE" name="role_tiersCDAF[]">
-						<label for="role_tiersCDAF[]">AUTORISE_CONTRAT_FOUNITURE</label>
-						<input type="checkbox" value="DETENTEUR_CONTRAT_FOURNITURE" name="role_tiersCDAF[]">
-						<label for="role_tiersCDAF[]">DETENTEUR_CONTRAT_FOURNITURE</label>
+						<div>
+							<input type="checkbox" value="AUTORISE_CONTRAT_FOUNITURE" name="role_tiersCDAS[]">
+							<label for="role_tiersCDAS[]">AUTORISE_CONTRAT_FOUNITURE</label>
+							<input type="checkbox" value="DETENTEUR_CONTRAT_FOURNITURE" name="role_tiersCDAS[]">
+							<label for="role_tiersCDAS[]">DETENTEUR_CONTRAT_FOURNITURE</label>
+						</div>
 
 						<!--Renseigner l'etat_droit_acces-->
-						<input type="checkbox" value="Active" name="etat_droit_accesCDAF[]">
-						<label for="etat_droit_accesCDAF[]">Active</label>
-						<input type="checkbox" value="A valider" name="etat_droit_accesCDAF[]">
-						<label for="etat_droit_accesCDAF[]">A valider</label>
-						<input type="checkbox" value="Révoquée" name="etat_droit_accesCDAF[]">
-						<label for="etat_droit_accesCDAF[]">Révoquée</label>
-						<input type="checkbox" value="A revérifier" name="etat_droit_accesCDAF[]">
-						<label for="etat_droit_accesCDAF[]">A revérifier</label>
-						<input type="checkbox" value="Obsolète" name="etat_droit_accesCDAF[]">
-						<label for="etat_droit_accesCDAF[]">Obsolète</label>
-						<input type="checkbox" value="Refusée" name="etat_droit_accesCDAF[]">
-						<label for="etat_droit_accesCDAF[]">Refusée</label>
+						<div>
+							<input type="checkbox" value="Active" name="etat_droit_accesCDAS[]">
+							<label for="etat_droit_accesCDAS[]">Active</label>
+							<input type="checkbox" value="A valider" name="etat_droit_accesCDAS[]">
+							<label for="etat_droit_accesCDAS[]">A valider</label>
+							<input type="checkbox" value="Révoquée" name="etat_droit_accesCDAS[]">
+							<label for="etat_droit_accesCDAS[]">Révoquée</label>
+							<input type="checkbox" value="A revérifier" name="etat_droit_accesCDAS[]">
+							<label for="etat_droit_accesCDAS[]">A revérifier</label>
+							<input type="checkbox" value="Obsolète" name="etat_droit_accesCDAS[]">
+							<label for="etat_droit_accesCDAS[]">Obsolète</label>
+							<input type="checkbox" value="Refusée" name="etat_droit_accesCDAS[]">
+							<label for="etat_droit_accesCDAS[]">Refusée</label>
+						</div>
 
 						<!--Renseigner le statut_controle_preuve-->
-						<input type="checkbox" value="Preuve en attente" name="statut_controle_preuveCDAF[]">
-						<label for="statut_controle_preuveCDAF[]">Preuve en attente</label>
-						<input type="checkbox" value="Preuve en cours de vérification" name="statut_controle_preuveCDAF[]">
-						<label for="statut_controle_preuveCDAF[]">Preuve en cours de vérification</label>
-						<input type="checkbox" value="Preuve Vérifiée OK" name="statut_controle_preuveCDAF[]">
-						<label for="statut_controle_preuveCDAF[]">Preuve Vérifiée OK</label>
-						<input type="checkbox" value="Preuve Vérifiée KO" name="statut_controle_preuveCDAF[]">
-						<label for="statut_controle_preuveCDAF[]">Preuve Vérifiée KO</label>
+						<div>
+							<input type="checkbox" value="Preuve en attente" name="statut_controle_preuveCDAS[]">
+							<label for="statut_controle_preuveCDAS[]">Preuve en attente</label>
+							<input type="checkbox" value="Preuve en cours de vérification" name="statut_controle_preuveCDAS[]">
+							<label for="statut_controle_preuveCDAS[]">Preuve en cours de vérification</label>
+							<input type="checkbox" value="Preuve Vérifiée OK" name="statut_controle_preuveCDAS[]">
+							<label for="statut_controle_preuveCDAS[]">Preuve Vérifiée OK</label>
+							<input type="checkbox" value="Preuve Vérifiée KO" name="statut_controle_preuveCDAS[]">
+							<label for="statut_controle_preuveCDAS[]">Preuve Vérifiée KO</label>
+						</div>
 
 						<!--Renseigner le role_tiers-->
-						<input type="checkbox" value="AUTORISE_CONTRAT_FOUNITURE" name="id_pceCDAF[]">
-						<label for="id_pceCDAF[]">AUTORISE_CONTRAT_FOUNITURE</label>
-						<input type="checkbox" value="DETENTEUR_CONTRAT_FOURNITURE" name="id_pceCDAF[]">
-						<label for="id_pceCDAF[]">DETENTEUR_CONTRAT_FOURNITURE</label>
-						<input type="checkbox" value="DETENTEUR_CONTRAT_FOURNITURE" name="id_pceCDAF[]">
-						<label for="id_pceCDAF[]">DETENTEUR_CONTRAT_FOURNITURE</label>
+						<div>
+							<input type="checkbox" value="AUTORISE_CONTRAT_FOUNITURE" name="id_pceCDAS[]">
+							<label for="id_pceCDAS[]">AUTORISE_CONTRAT_FOUNITURE</label>
+							<input type="checkbox" value="DETENTEUR_CONTRAT_FOURNITURE" name="id_pceCDAS[]">
+							<label for="id_pceCDAS[]">DETENTEUR_CONTRAT_FOURNITURE</label>
+							<input type="checkbox" value="DETENTEUR_CONTRAT_FOURNITURE" name="id_pceCDAS[]">
+							<label for="id_pceCDAS[]">DETENTEUR_CONTRAT_FOURNITURE</label>
+						</div>
 
 
 
