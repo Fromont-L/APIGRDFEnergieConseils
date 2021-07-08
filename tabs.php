@@ -73,13 +73,14 @@
 
 			<div id="DeclarerDroitAcces" class="tabcontent">
 			  <h3>DeclarerDroitAcces</h3>
-			  <p>Declarer un Droit d'Accès </p>
+			  <p>Déclarez votre droit d'accès</p>
 			  <?php include 'declarer_droit_acces2.php'?>
 			</div>
 
 			<div id="ConsulterDroitAcces" class="tabcontent">
-			  <h3>News</h3>
-			  <p>Some news this fine day!</p>
+			  <h3>Consulter mes Droits d'Accès</h3>
+			  <p>Retrouvez les droits d'accès que vous avez déclarés</p>
+			  <?php include 'consulter_droit_acces2.php' ?>
 			</div>
 
 			<div id="ConsulterDroitAccesSpecifique" class="tabcontent">
@@ -134,6 +135,9 @@
 			}
 			else if(isset($_POST['id_pce'])) {
 				echo '<script type="text/javascript">document.getElementById("BoutonDeclarerDroitAcces").click();</script>';		
+			}
+			else if(isset($_POST['bearerCDA'])) {
+				echo '<script type="text/javascript">document.getElementById("BoutonConsulterDroitAcces").click();</script>';
 			}
 			else {
 				echo '<script type="text/javascript">document.getElementById("BoutonRecupererAccessToken").click();</script>';
