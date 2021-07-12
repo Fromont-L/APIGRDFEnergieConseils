@@ -74,6 +74,7 @@
 
 		<div class="container my-3">
 		<h1 class="text-center">Consulter un Droit d'Accès</h1>
+		<h1 class="text-center">Consulter un droit d'accès</h1>
 		</div>
 
 		<div class="container">

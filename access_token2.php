@@ -28,3 +28,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['token_button']))
     print_r($appeltoken);
   ?>
 </p>
+    <form action="tabs.php" method="post">
+      <!--Le name="token_button" est utilisé dans le if du début de ce code-->
+      <input type="submit" id="envoyer" name="token_button" value="Go Token GOOOOO !!!">
+    </form>
+    <p>
+      <?php
+      // Affiche le token lors du clic sur le bouton
+        print_r($appeltoken);
+      ?>
+    </p>

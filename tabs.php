@@ -46,6 +46,7 @@
 		
 		<div class="container">
 			<nav class="tab navbar sticky-top navbar-expand-lg navbar-light bg-header">
+			<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-header">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"aria-controls="navbarNav" aria-expended="false">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -58,6 +59,7 @@
 						
 						<button class="tablink btn btn-sm" onclick="openPage('ConsulterDroitAcces', this, '#41CE21')" id="BoutonConsulterDroitAcces">Consulter Droit d'Accès</button>
 						<button class="tablink btn btn-sm" onclick="openPage('ConsulterDroitAccesSpecifiques', this, '#41CE21')" id="BoutonConsulterDroitAccesSpecifiques">Consulter Droit Accès Spécifiques</button>
+						<button class="tablink btn btn-sm" onclick="openPage('ConsulterDroitAccesSpecifique', this, '#41CE21')" id="BoutonConsulterDroitAccesSpecifique">Consulter Droit Access Spécifique</button>
 						<button class="tablink btn btn-sm" onclick="openPage('ConsulterConsommationsPubliees', this, '#41CE21')" id="BoutonConsulterConsommationsPubliees">Consulter Consommation Publiées</button>
 						<button class="tablink btn btn-sm" onclick="openPage('ConsulterConsommationsInformatives', this, '#41CE21')" id="BoutonConsulterConsommationsInformatives">Consulter Informations Informatives</button>
 						<button class="tablink btn btn-sm" onclick="openPage('ConsulterDonneesContractuelles', this, '#41CE21')" id="BoutonConsulterDonneesContractuelles">Consulter Données Contractuelles</button>
@@ -87,6 +89,9 @@
 			  <h3>Consulter mesDroits d'Accès Spécifiques</h3>
 			  <p>Retrouvez les droits d'accès que vous avez déclarés, mais cette fois-ci en selectionnant jusqu'à 3 PCE de votre choix</p>
 			  <?php include 'consulter_droit_acces_specifiques2.php' ?>
+			<div id="ConsulterDroitAccesSpecifique" class="tabcontent">
+			  <h3>Contact</h3>
+			  <p>Get in touch, or swing by for a cup of coffee.</p>
 			</div>
 
 			<div id="ConsulterConsommationsPubliees" class="tabcontent">
