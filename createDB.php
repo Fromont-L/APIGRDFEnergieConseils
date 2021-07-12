@@ -1,7 +1,7 @@
 <?php
 	$servername = "localhost";
-	$username = "fromont";
-	$password = "password";
+	$username = "root";
+	$password = "";
 
 	//Création de la connexion
 	$conn = new mysqli($servername, $username, $password);
@@ -24,8 +24,8 @@
 	
 	//Déclarer les variables
 	$servername = "localhost";
-	$username = "fromont";
-	$password = "password";
+	$username = "root";
+	$password = "";
 	$dbname = "Tricatel";
 
 	//Création de la connexion
@@ -41,9 +41,7 @@
 
 	//Vérification sur la création / message d'erreur
 	if ($conn->multi_query($sql) === TRUE) {
-		//Code pour voir le numéro du dernier ID
-		$last_id = $conn->insert_id;
-		echo " <br/>L'ajout des valeurs dans la table s'est réalisée avec succès! Le dernier ID inséré est : " . $last_id;
+		echo " <br/>L'ajout des valeurs dans la table s'est réalisée avec succès! Le dernier ID inséré est : ";
 	} else {
 		echo "<br/>Erreur... et oui : " . $sql . "<br/>" . $conn->error;
 	}

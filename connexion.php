@@ -24,7 +24,7 @@
 	else
 	{
 		echo 'Authentication failed.';
-		header("Location: tricatel.php");
+		header("Location: authentification.php");
 	}
 
 ?>
