@@ -84,7 +84,7 @@
 		<div class="container">
 			<div class="row py-5">	
 				<div class="col-12">
-					<form method="POST" action="consulter_consommations_publiees.php">
+					<form method="POST" action="consulter_consommations_informatives.php">
 
 						<!--Renseigner l'access_token-->
 						<label>Insérer l'access_token : </label>
