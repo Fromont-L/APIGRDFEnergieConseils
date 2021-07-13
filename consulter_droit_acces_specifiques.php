@@ -122,7 +122,7 @@
 		<link rel="icon" type="image/png" href="assets/image/tricatel_logo.jpg"/>
 		<link rel="stylesheet" href="assets/css/style.css"/>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-		<title>Déclarer un droit d'accès</title>
+		<title>Consulter Droit Accès Spécifiques</title>
 	</head>
 	<body class="index_body">
 		<?php include 'header.php'?>

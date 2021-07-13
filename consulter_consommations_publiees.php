@@ -72,13 +72,13 @@
 		<link rel="icon" type="image/png" href="assets/image/tricatel_logo.jpg"/>
 		<link rel="stylesheet" href="assets/css/style.css"/>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-		<title>Déclarer un droit d'accès</title>
+		<title>Consulter Consommations Publiées</title>
 	</head>
 	<body class="index_body">
 		<?php include 'header.php'?>
 
 		<div class="container my-3">
-		<h1 class="text-center">Consulter un Droit d'Accès</h1>
+		<h1 class="text-center">Consulter les Consommations Publiées</h1>
 		</div>
 
 		<div class="container">
@@ -123,7 +123,9 @@
 						    ?>
 						    <!--Permet de retourner tous les résultats de la liste-->
 						    <p><?php
+						    // Permet d'afficher la liste complète présente dans le .json, et c'est pas joli
 						    echo var_dump((array)$value) . " : ";
+						    // Permet d'appeler la liste des choses précises que l'on veut afficher à l'écran
 						    // echo var_dump(((array)($value['pce']))['id_pce']) . " : ";
 							?></p>
 						    
@@ -144,7 +146,6 @@
 				<div class="col-12">
 					<p><?= $cmd ?></p>
 					<p><?= var_dump(json_fix(utf8_encode($output[0]))) ?></p>
-					<p><?= str_replace("a", "A", "allahu akbar") ?></p>
 					<?php
 						file_put_contents("sketuveu.txt", json_fix(utf8_encode($output[0])));
 					?>

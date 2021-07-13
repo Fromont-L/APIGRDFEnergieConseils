@@ -44,14 +44,12 @@
 
 <div class="container my-3">
 <h1 class="text-center">Déclarer un Droit d'Accès</h1>
-<h1 class="text-center">Déclarer un droit d'accès</h1>
 </div>
 
 <div class="container">
 	<div class="row py-5">	
 		<div class="col-6">
 			<form method="POST" action="tabs.php">
-			<form method="POST" action="declarer_droit_acces2.php">
 
 				<!--Renseigner l'access_token-->
 				<label>Insérer l'access_token : </label>
