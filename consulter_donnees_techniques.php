@@ -3,7 +3,6 @@
 	session_start();
 	require './db_inc.php';
 	require './account_class.php';
-	require 'jolifyCCI.php';
 
 	$account = new Account();
 	$login = FALSE;
@@ -34,20 +33,18 @@
 	}
 	*/
 
-	if(isset($_POST['id_pceCCI']))
+	if(isset($_POST['id_pceCDT']))
 	{
 
-	  // Exécute le code java consulterconsommationsinformatives.jar
-		$cmd = "\"jdk-8.0.292.10-hotspot\\jre\\bin\\java.exe\" -jar consulterconsommationsinformatives.jar"
-		. " \"" . $_POST['id_pceCCI'] . "\"" 
-		. " \"" . $_POST['date_debutCCI'] . "\"" 
-		. " \"" . $_POST['date_finCCI'] . "\"" 
-		. " \"" . $_POST['bearerCCI'] . "\"" 
+	  // Exécute le code java consulterdonneestechniques.jar
+		$cmd = "\"jdk-8.0.292.10-hotspot\\jre\\bin\\java.exe\" -jar consulterdonneestechniques.jar"
+		. " \"" . $_POST['id_pceCDT'] . "\"" 
+		. " \"" . $_POST['bearerCDT'] . "\"" 
 		. " 2>&1";
 
 		exec($cmd, $output);
 		// Permet de savoir combien il y a de lignes dans la réponse (en enlever une parce que Java...)
-		$tailleReponse = count($output) - 1;
+		$tailleReponse = count($output);
 		if($tailleReponse >= 1){
 			// Retourne la valeur de la dernière ligne (retour traitement)
 			$reponseCode = ((array)json_decode(json_fix(utf8_encode($output[$tailleReponse - 1]))));
@@ -73,39 +70,29 @@
 		<link rel="icon" type="image/png" href="assets/image/tricatel_logo.jpg"/>
 		<link rel="stylesheet" href="assets/css/style.css"/>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-		<title>Consulter Consommations Informatives</title>
+		<title>Consulter Données Techniques</title>
 	</head>
 	<body class="index_body">
 		<?php include 'header.php'?>
 
 		<div class="container my-3">
-		<h1 class="text-center">Consulter les Consommations Informatives</h1>
+		<h1 class="text-center">Consulter les Données Techniques</h1>
 		</div>
 
 		<div class="container">
 			<div class="row py-5">	
 				<div class="col-12">
-					<form method="POST" action="consulter_consommations_informatives.php">
+					<form method="POST" action="consulter_donnees_techniques.php">
 
 						<!--Renseigner l'access_token-->
 						<label>Insérer l'access_token : </label>
-						<input type="text" id="bearerCCI" name="bearerCCI"/>
+						<input type="text" id="bearerCDT" name="bearerCDT"/>
 						<br/>
 
 						<!--Renseigner l'id_pce-->
 						<label>Insérer l'ID PCE : </label>
 						<br/>
-						<input type="text" id="id_pceCCI" name="id_pceCCI"/>
-						<br/>
-
-						<!--Renseigner la date de début (5 ans en arrière max.)-->
-						<label>Insérer la date de début (5 ans en arrière max.) : </label>
-						<input type="date" id="date_debutCCI" name="date_debutCCI"/>
-						<br/>
-
-						<!--Renseigner la date de fin (Date d'aujourd'hui max.)-->
-						<label>Insérer la date de fin (Date d'aujourd'hui max.) : </label>
-						<input type="date" id="date_finCCI" name="date_finCCI"/>
+						<input type="text" id="id_pceCDT" name="id_pceCDT"/>
 						<br/>
 
 						<input type="submit" value="Terminer"/>
@@ -115,7 +102,27 @@
 				<div class="col-12">
 				<?php
 					if($reponseEstPositive){
-						echo prettifyCCI($output);
+						for ($i=0; $i < $tailleReponse - 1; $i++) {
+							?>
+							<div class="boxresult col-12">
+							<?php 
+							foreach (((array)json_decode(json_fix(utf8_encode($output[$i])))) as $value){
+								$value = (array)$value;
+						    ?>
+						    <!--Permet de retourner tous les résultats de la liste-->
+						    <p><?php
+						    // Permet d'afficher la liste complète présente dans le .json, et c'est pas joli
+						    echo var_dump((array)$value) . " : ";
+						    // Permet d'appeler la liste des choses précises que l'on veut afficher à l'écran
+						    // echo var_dump(((array)($value['pce']))['id_pce']) . " : ";
+							?></p>
+						    
+						    <?php
+							}
+							?>
+							</div>
+							<?php
+						}
 					} else {
 						echo "erreur";
 					}
@@ -128,8 +135,7 @@
 					<p><?= $cmd ?></p>
 					<p><?= var_dump(json_fix(utf8_encode($output[0]))) ?></p>
 					<?php
-						// Permet de créer un .txt avec la réponse de la requête en .json
-						file_put_contents("sketuveu2.txt", json_fix(utf8_encode($output[0])));
+						file_put_contents("sketuveu4.txt", json_fix(utf8_encode($output[0])));
 					?>
 				</div>
 			</div>

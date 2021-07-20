@@ -16,7 +16,9 @@
 		die();
 	}
 
-	
+	if (!$login){
+		header ('Location: index.php');
+	}
 
 ?>
 
@@ -34,6 +36,7 @@
 		<title>API GRDF - Tableau de Bord</title>
 	</head>
 	<body class="index_body">
+		
 
 		
 

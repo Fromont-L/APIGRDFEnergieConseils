@@ -1,5 +1,9 @@
 <?php
 
+if (!$login){
+  header('index.php');
+}
+
 if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['token_button']))
     {
         // Si le bouton est activé, stocke l'access_token

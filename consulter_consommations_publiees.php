@@ -3,6 +3,7 @@
 	session_start();
 	require './db_inc.php';
 	require './account_class.php';
+	require 'jolifyCCP.php';
 
 	$account = new Account();
 	$login = FALSE;
@@ -114,27 +115,7 @@
 				<div class="col-12">
 				<?php
 					if($reponseEstPositive){
-						for ($i=0; $i < $tailleReponse - 1; $i++) {
-							?>
-							<div class="boxresult col-6">
-							<?php 
-							foreach (((array)json_decode(json_fix(utf8_encode($output[$i])))) as $value){
-								$value = (array)$value;
-						    ?>
-						    <!--Permet de retourner tous les résultats de la liste-->
-						    <p><?php
-						    // Permet d'afficher la liste complète présente dans le .json, et c'est pas joli
-						    echo var_dump((array)$value) . " : ";
-						    // Permet d'appeler la liste des choses précises que l'on veut afficher à l'écran
-						    // echo var_dump(((array)($value['pce']))['id_pce']) . " : ";
-							?></p>
-						    
-						    <?php
-							}
-							?>
-							</div>
-							<?php
-						}
+						echo prettifyCCP($output);
 					} else {
 						echo "erreur";
 					}

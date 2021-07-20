@@ -25,7 +25,6 @@
 				<a class="nav-link btn btn-danger" href="deconnexion.php">Déconnexion</a>
 			 </li>
 			<?php } ?>
-
 		</ul>
 	</div>
 </nav>
