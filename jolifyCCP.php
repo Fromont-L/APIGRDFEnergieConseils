@@ -1,6 +1,18 @@
 <?php
-	function accordionCCP($qualite_releve_debut, $statut_releve_debut, $valeur_index_brut_debut, $horodate_Index_brut_debut, $valeur_index_converti_debut, $horodate_Index_converti_debut, $date_releve_fin, $libelle_raison_releve_fin, $qualite_releve_fin, $statut_releve_fin, $valeur_index_brut_fin, $horodate_Index_brut_fin, $valeur_index_converti_fin, $horodate_Index_converti_fin, $date_debut_consommation, $date_fin_consommation, $volume_brut, $coeff_pta, $valeur_pcs, $coeff_conversion, $volume_converti, $energie, $type_qualif_conso, $statut_conso, $journee_gaziere_consommation, $date_debut_bordereau, $date_fin_bordereau, $nb_jour_gazier_bordereau, $statut_restitution){
+	function accordionCCP($id_pce, $date_debut_periode, $date_fin_periode, $qualite_releve_debut, $statut_releve_debut, $valeur_index_brut_debut, $horodate_Index_brut_debut, $valeur_index_converti_debut, $horodate_Index_converti_debut, $date_releve_fin, $libelle_raison_releve_fin, $qualite_releve_fin, $statut_releve_fin, $valeur_index_brut_fin, $horodate_Index_brut_fin, $valeur_index_converti_fin, $horodate_Index_converti_fin, $date_debut_consommation, $date_fin_consommation, $volume_brut, $coeff_pta, $valeur_pcs, $coeff_conversion, $volume_converti, $energie, $type_qualif_conso, $statut_conso, $journee_gaziere_consommation, $date_debut_bordereau, $date_fin_bordereau, $nb_jour_gazier_bordereau, $statut_restitution){
 		$htmlCCP = "";
+
+		// DÉBUT de la div dédiée à l'id_pce et la période
+		$htmlCCP .= "<div class=\"boxresult\">";
+
+		// ID PCE & Période
+		$htmlCCP .= "<p>ID PCE : " . $id_pce . "</p>";
+		$htmlCCP .= "<p>ID PCE : " . $date_debut_periode . "</p>";
+		$htmlCCP .= "<p>ID PCE : " . $date_fin_periode . "</p>";
+
+		// FIN de la div dédiée à l'id_pce et à la période
+		$htmlCCP .= "</div>";
+
 		// DÉBUT de la div
 		$htmlCCP .= "<div class=\"boxresult\">";
 
@@ -78,6 +90,11 @@
 		for ($i=0; $i < $tailleReponse; $i++) {
 			$jsonOutput = (array) ((array)json_decode(json_fix(utf8_encode($jarOutputCCP[$i]))))['resultat'];
 
+			// ID PCE et Période
+			$id_pce = ((array) $jsonOutput['pce'])['id_pce'];
+			$date_debut_periode = ((array) $jsonOutput['periode'])['date_debut'];
+			$date_fin_periode = ((array) $jsonOutput['periode'])['date_fin'];
+
 			// Releve_debut DÉBUT
 			$qualite_releve_debut = ((array) $jsonOutput['releve_debut'])['qualite_releve'];
 			$statut_releve_debut = ((array) $jsonOutput['releve_debut'])['statut_releve'];
@@ -123,7 +140,7 @@
 			// Statut_restitution TERMINÉ
 			
 
-			$htmlFinalCCP .= accordionCCP($qualite_releve_debut, $statut_releve_debut, $valeur_index_brut_debut, $horodate_Index_brut_debut, $valeur_index_converti_debut, $horodate_Index_converti_debut, $date_releve_fin, $libelle_raison_releve_fin, $qualite_releve_fin, $statut_releve_fin, $valeur_index_brut_fin, $horodate_Index_brut_fin, $valeur_index_converti_fin, $horodate_Index_converti_fin, $date_debut_consommation, $date_fin_consommation, $volume_brut, $coeff_pta, $valeur_pcs, $coeff_conversion, $volume_converti, $energie, $type_qualif_conso, $statut_conso, $journee_gaziere_consommation, $date_debut_bordereau, $date_fin_bordereau, $nb_jour_gazier_bordereau, $statut_restitution);
+			$htmlFinalCCP .= accordionCCP($id_pce, $date_debut_periode, $date_fin_periode, $qualite_releve_debut, $statut_releve_debut, $valeur_index_brut_debut, $horodate_Index_brut_debut, $valeur_index_converti_debut, $horodate_Index_converti_debut, $date_releve_fin, $libelle_raison_releve_fin, $qualite_releve_fin, $statut_releve_fin, $valeur_index_brut_fin, $horodate_Index_brut_fin, $valeur_index_converti_fin, $horodate_Index_converti_fin, $date_debut_consommation, $date_fin_consommation, $volume_brut, $coeff_pta, $valeur_pcs, $coeff_conversion, $volume_converti, $energie, $type_qualif_conso, $statut_conso, $journee_gaziere_consommation, $date_debut_bordereau, $date_fin_bordereau, $nb_jour_gazier_bordereau, $statut_restitution);
 		}
 		return $htmlFinalCCP;
 	}
