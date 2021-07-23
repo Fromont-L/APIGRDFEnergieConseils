@@ -3,7 +3,7 @@
 		$htmlCCI = "";
 
 		// DÉBUT de la div dédiée à l'id_pce et la période
-		$htmlCCP .= "<div class=\"boxresult\">";
+		$htmlCCI .= "<div class=\"boxresult\">";
 
 		// ID PCE & Période
 		$htmlCCI .= "<p>ID PCE : " . $id_pce . "</p>";
@@ -11,7 +11,7 @@
 		$htmlCCI .= "<p>Date Fin Période : " . $date_fin_periode . "</p>";
 
 		// FIN de la div dédiée à l'id_pce et à la période
-		$htmlCCP .= "</div>";
+		$htmlCCI .= "</div>";
 
 		// DÉBUT de la div
 		$htmlCCI .= "<div class=\"boxresult\">";
