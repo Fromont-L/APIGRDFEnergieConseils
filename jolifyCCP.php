@@ -7,8 +7,8 @@
 
 		// ID PCE & Période
 		$htmlCCP .= "<p>ID PCE : " . $id_pce . "</p>";
-		$htmlCCP .= "<p>ID PCE : " . $date_debut_periode . "</p>";
-		$htmlCCP .= "<p>ID PCE : " . $date_fin_periode . "</p>";
+		$htmlCCP .= "<p>Date Début Période : " . $date_debut_periode . "</p>";
+		$htmlCCP .= "<p>Date Fin Période : " . $date_fin_periode . "</p>";
 
 		// FIN de la div dédiée à l'id_pce et à la période
 		$htmlCCP .= "</div>";
