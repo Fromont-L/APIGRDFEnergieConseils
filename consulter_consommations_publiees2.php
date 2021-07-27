@@ -34,8 +34,8 @@
 		// Insérer le message d'erreur d'access_token au cas où (mais surement pas là) "erreur": "Une authentification est nécessaire pour accéder à la ressource. "
 	} else {
 		$reponseEstPositive = false;
-		$reponse = "lol";
-		$cmd = "lol2";
+		$reponse = "";
+		$cmd = "";
 	}
 ?>
 <div class="container my-3">

@@ -127,18 +127,6 @@
 			  <p>Affiche les données techniques</p>
 			  <?php include 'consulter_donnees_techniques2.php' ?>
 			</div>
-			<div class="row py-5">
-				
-				<div class="col-lg-4 col-md-6 col-sm-12">
-					<form action="declarer_droit_acces.php">
-						<input type="submit" value="Déclarer un droit d'accès"/>
-					</form>
-					<form action="access_token.php">
-						<input type="submit" value="Obtenir un access_token"/>
-					</form>
-				</div>
-				
-			</div>
 
 			<?php include 'footer.php'?>
 		</div>

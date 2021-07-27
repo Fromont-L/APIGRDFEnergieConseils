@@ -18,13 +18,13 @@
 
 	if ($login)
 	{
-		echo 'Authentication successful.';
-		header("Location: index.php");
+		echo 'Vous vous êtes connecté avec succès !';
+		header("Location: tabs.php");
 	}
 	else
 	{
-		echo 'Authentication failed.';
-		header("Location: authentification.php");
+		echo 'Échec de l\'authentification, veuillez réessayer.';
+		header("Location: index.php");
 	}
 
 ?>

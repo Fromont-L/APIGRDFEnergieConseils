@@ -36,8 +36,8 @@
 		
 	} else {
 		$reponseEstPositive = false;
-		$reponse = "lol";
-		$cmd = "lol2";
+		$reponse = "";
+		$cmd = "";
 	}
 ?>
 

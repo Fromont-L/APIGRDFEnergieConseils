@@ -10,16 +10,9 @@
 		<ul class="navbar-nav mr-auto">
 		</ul>
 		<ul class="navbar-nav mx-3">
-			<?php if($login) { ?>
 			<li class="nav-item mx-3">
-				<a class="nav-link btn btn-info" href="access_token.php">Générer un access_token</a>
+				<a class="nav-link btn btn-info" href="https://www.gazelectricitemoinschers.fr">Visiter le site d'Energie-Conseils</a>
 			</li>
-			<?php } ?>
-			<?php if(!$login) { ?>
-			<li class="nav-item mx-3">
-				<a class="nav-link btn btn-success" href="authentification.php">Connexion</a>
-			 </li>
-			<?php } ?>
 			<?php if($login) { ?>
 			<li class="nav-item mx-3">
 				<a class="nav-link btn btn-danger" href="deconnexion.php">Déconnexion</a>
