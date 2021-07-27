@@ -68,7 +68,6 @@
 			} else {
 				if(isset($_SESSION['cdc'])){
 					echo $_SESSION['cdc'];
-					$_SESSION['cdc'] = null;
 				}
 			}
 		?>

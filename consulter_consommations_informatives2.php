@@ -34,8 +34,8 @@
 		// Insérer le message d'erreur d'access_token au cas où (mais surement pas là) "erreur": "Une authentification est nécessaire pour accéder à la ressource. "
 	} else {
 		$reponseEstPositive = false;
-		$reponse = "lol";
-		$cmd = "lol2";
+		$reponse = "";
+		$cmd = "";
 	}
 ?>
 
@@ -81,7 +81,6 @@
 			} else {
 				if(isset($_SESSION['cci'])){
 					echo $_SESSION['cci'];
-					$_SESSION['cci'] = null;
 				}
 			}
 		?>

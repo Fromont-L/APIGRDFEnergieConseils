@@ -63,8 +63,11 @@
 		<?php
 			if($reponseEstPositive){
 				echo prettifyCDT($output);
+				$_SESSION['cdt'] = prettifyCDT($output);
 			} else {
-				echo "erreur";
+				if(isset($_SESSION['cdt'])){
+					echo $_SESSION['cdt'];
+				}
 			}
 		?>
 		</div>

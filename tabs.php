@@ -4,6 +4,8 @@
 	require './account_class.php';
 	require 'jolifyCCP.php';
 	require 'jolifyCCI.php';
+	require 'jolifyCDA.php';
+	require 'jolifyCDAS.php';
 	require 'jolifyCDC.php';
 	require 'jolifyCDT.php';
 

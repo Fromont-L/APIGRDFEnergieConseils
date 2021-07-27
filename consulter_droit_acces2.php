@@ -62,20 +62,13 @@
 		<div class="col-12">
 		<?php
 			if($reponseEstPositive){
-				for ($i=0; $i < $tailleReponse - 1; $i++) {
-					?>
-					<div class="boxresult col-6">
-					<?php 
-					foreach (((array)json_decode(utf8_encode($output[$i]))) as $key => $value){
-				    ?>
-				    <p><?= $key . " : " . $value ?></p>
-				    <?php
-					}
-					?>
-					</div>
-					<?php
+				echo prettifyCDA($output);
+				$_SESSION['cda'] = prettifyCDA($output);
+			} else {
+				if(isset($_SESSION['cda'])){
+					echo $_SESSION['cda'];
 				}
-			} // Ajouter $_SESSION[''];
+			}
 		?>
 		</div>
 	</div>
@@ -83,6 +76,7 @@
 	<div class="container">
 		<div class="col-12">
 			<p><?= $cmd ?></p>
+			<p><?= var_dump( (array) ((array)json_decode(json_fix(utf8_encode($output[0]))))['resultat']) ?></p>
 		</div>
 	</div>
 </div>

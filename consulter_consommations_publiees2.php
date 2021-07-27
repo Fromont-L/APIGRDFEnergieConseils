@@ -80,7 +80,6 @@
 			} else {
 				if(isset($_SESSION['ccp'])){
 					echo $_SESSION['ccp'];
-					$_SESSION['ccp'] = null;
 				}
 			}
 		?>

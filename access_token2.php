@@ -8,6 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['token_button']))
     {
         // Si le bouton est activé, stocke l'access_token
         $appeltoken = get_token();
+        $_SESSION['appeltoken'] = $appeltoken;
     } else {
       // Sinon retourne "rien"
       $appeltoken = "";
@@ -29,6 +30,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['token_button']))
 <p>
   <?php
   // Affiche le token lors du clic sur le bouton
-    print_r($appeltoken);
+
+    if(isset($_SESSION['appeltoken'])){
+          print_r($_SESSION['appeltoken']);
+    } else {
+      print_r($appeltoken);
+      
+    }
   ?>
 </p>

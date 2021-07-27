@@ -167,19 +167,12 @@
 		<div class="col-12">
 		<?php
 			if($reponseEstPositive){
-				for ($i=0; $i < $tailleReponse - 1; $i++) {
-					?>
-					<div class="boxresult col-6">
-					<?php 
-					foreach (((array)json_decode(utf8_encode($output[$i]))) as $key => $value){
-				    ?>
-				    <p><?= $key . " : " . $value ?></p>
-				    <?php
-					}
-					?>
-					</div>
-					<?php
-				} // Mettre la $_SESSION mais je ne sais pas comment...
+				echo prettifyCDAS($output);
+				$_SESSION['cdas'] = prettifyCDAS($output);
+			} else {
+				if(isset($_SESSION['cdas'])){
+					echo $_SESSION['cdas'];
+				}
 			}
 		?>
 		</div>
@@ -188,7 +181,7 @@
 	<div class="container">
 		<div class="col-12">
 			<p><?= $cmd ?></p>
-			<p><?= var_dump($output) ?></p>
+			<p><?= var_dump( (array) ((array)json_decode(json_fix(utf8_encode($output[0]))))['resultat']) ?></p>
 		</div>
 	</div>
 </div>
