@@ -24,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['token_button']))
 ?>
 <form action="tabs.php" method="post">
   <!--Le name="token_button" est utilisé dans le if du début de ce code-->
-  <input type="submit" id="envoyer" name="token_button" value="Go Token GOOOOO !!!">
+  <input type="submit" id="envoyer" name="token_button" value="Générer un access_token">
 </form>
 <p>
   <?php

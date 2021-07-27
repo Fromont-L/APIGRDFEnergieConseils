@@ -8,7 +8,7 @@
 				if(!$isFirst) {
 					$resultatConvertion .= ", ";
 				}
-				$resultatConvertion .= "\"" . $cb . "\"";
+				$resultatConvertion .= "\\\"" . $cb . "\\\"";
 				$isFirst = false;
 			}
 			$resultatConvertion .= "]";
@@ -19,6 +19,7 @@
 	}
 	
 	/*
+	// Automatise l'access-token, mais risque de bloquer l'utilisateur si trop de requêtes en même temps
 	function get_token()
 	{
 		// Exécute le code java tokentest.jar
@@ -89,8 +90,8 @@
 		
 	} else {
 		$reponseEstPositive = false;
-		$reponse = "lol";
-		$cmd = "lol2";
+		$reponse = "";
+		$cmd = "";
 	}
 ?>
 
@@ -159,8 +160,6 @@
 					<br/>
 				</div>
 
-
-
 				<input type="submit" value="Terminer"/>
 			</form> 
 		</div>
@@ -180,7 +179,7 @@
 					?>
 					</div>
 					<?php
-				}
+				} // Mettre la $_SESSION mais je ne sais pas comment...
 			}
 		?>
 		</div>

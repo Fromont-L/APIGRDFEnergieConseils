@@ -1,6 +1,7 @@
 <?php
 	
 	/*
+	// Automatise l'access-token, mais risque de bloquer l'utilisateur si trop de requêtes en même temps
 	function get_token()
 	{
 		// Exécute le code java tokentest.jar
@@ -36,8 +37,8 @@
 		// celui du dessus ne fonctionne pas ? faire ->
 		$erreur = var_dump($output[0]);
 	} else {
-		$erreur = "lol";
-		$cmd = "lol2";
+		$erreur = "";
+		$cmd = "";
 	}
 
 ?>
@@ -131,7 +132,7 @@
 				<label for="faux">Faux</label>
 				<br/>
 
-				<input type="submit" value="Terminiert"/>
+				<input type="submit" value="Terminer"/>
 			</form> 
 		</div>
 	

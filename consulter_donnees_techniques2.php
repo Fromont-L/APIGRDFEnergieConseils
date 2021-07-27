@@ -1,7 +1,5 @@
 <?php
-	
 	/*
-	// Automatise l'access-token, mais risque de bloquer l'utilisateur si trop de requêtes en même temps
 	function get_token()
 	{
 		// Exécute le code java tokentest.jar
@@ -11,38 +9,34 @@
 	}
 	*/
 
-	if(isset($_POST['bearerCDA']))
+	if(isset($_POST['id_pceCDT']))
 	{
 
-	  // Exécute le code java consulterdroitacces.jar
-		$cmd = "\"jdk-8.0.292.10-hotspot\\jre\\bin\\java.exe\" -jar consulterdroitacces.jar"
-		. " \"" . $_POST['bearerCDA'] . "\"" 
+	  // Exécute le code java consulterdonneestechniques.jar
+		$cmd = "\"jdk-8.0.292.10-hotspot\\jre\\bin\\java.exe\" -jar consulterdonneestechniques.jar"
+		. " \"" . $_POST['id_pceCDT'] . "\"" 
+		. " \"" . $_POST['bearerCDT'] . "\"" 
 		. " 2>&1";
 
 		exec($cmd, $output);
 		// Permet de savoir combien il y a de lignes dans la réponse (en enlever une parce que Java...)
-		$tailleReponse = count($output) - 1;
-		if($tailleReponse >= 2){
+		$tailleReponse = count($output);
+		if($tailleReponse >= 1){
 			// Retourne la valeur de la dernière ligne (retour traitement)
-			$reponseCode = ((array)json_decode(utf8_encode($output[$tailleReponse - 1])));
+			$reponseCode = ((array)json_decode(json_fix(utf8_encode($output[$tailleReponse - 1]))));
 			// $reponse = ((array)json_decode(utf8_encode($output[0])));
 			// $reponseBrut = var_dump($output[2]);
-			if(isset($reponseCode['code_statut_traitement']) && $reponseCode['code_statut_traitement'] == "0000000000"){
-				$reponseEstPositive = true;
-			} else {
-				$reponseEstPositive = false;
-			}
+			$reponseEstPositive = true;
 		}
-		
+		// Insérer le message d'erreur d'access_token au cas où (mais surement pas là) "erreur": "Une authentification est nécessaire pour accéder à la ressource. "
 	} else {
 		$reponseEstPositive = false;
 		$reponse = "lol";
 		$cmd = "lol2";
 	}
 ?>
-
 <div class="container my-3">
-	<h1 class="text-center">Consulter un Droit d'Accès</h1>
+<h1 class="text-center">Consulter les Données Techniques</h1>
 </div>
 
 <div class="container">
@@ -52,7 +46,13 @@
 
 				<!--Renseigner l'access_token-->
 				<label>Insérer l'access_token : </label>
-				<input type="text" id="bearerCDA" name="bearerCDA"/>
+				<input type="text" id="bearerCDT" name="bearerCDT"/>
+				<br/>
+
+				<!--Renseigner l'id_pce-->
+				<label>Insérer l'ID PCE : </label>
+				<br/>
+				<input type="text" id="id_pceCDT" name="id_pceCDT"/>
 				<br/>
 
 				<input type="submit" value="Terminer"/>
@@ -62,20 +62,10 @@
 		<div class="col-12">
 		<?php
 			if($reponseEstPositive){
-				for ($i=0; $i < $tailleReponse - 1; $i++) {
-					?>
-					<div class="boxresult col-6">
-					<?php 
-					foreach (((array)json_decode(utf8_encode($output[$i]))) as $key => $value){
-				    ?>
-				    <p><?= $key . " : " . $value ?></p>
-				    <?php
-					}
-					?>
-					</div>
-					<?php
-				}
-			} // Ajouter $_SESSION[''];
+				echo prettifyCDT($output);
+			} else {
+				echo "erreur";
+			}
 		?>
 		</div>
 	</div>
@@ -83,6 +73,7 @@
 	<div class="container">
 		<div class="col-12">
 			<p><?= $cmd ?></p>
+			<p><?= var_dump(json_fix(utf8_encode($output[0]))) ?></p>
 		</div>
 	</div>
 </div>
